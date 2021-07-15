@@ -1,0 +1,13 @@
+version: '3'
+services:
+  api:
+    image: listmanager.azurecr.io/listmanager/api:dev
+    environment:
+      ASPNETCORE_ENVIRONMENT: dev
+      # MONGO_URI: in Azure hinterlegt
+  app:
+    image: listmanager.azurecr.io/listmanager/app:dev
+    ports:
+      - 80:80
+    depends_on:
+      - api

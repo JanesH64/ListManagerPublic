@@ -1,0 +1,36 @@
+
+<ng-container>
+    <span>
+        <button mat-icon-button (click)="redirectToHome()">
+            <mat-icon class="centered-icon">home</mat-icon>
+        </button>
+    </span>
+    
+    
+
+    <ng-container *ngIf="categoryName">
+        <span>
+            <mat-icon class="centered-icon">arrow_right</mat-icon>
+        </span>
+    
+        <span>
+            <button mat-button (click)="redirectToCategory()">
+                {{categoryName}}
+            </button>
+        </span>
+    </ng-container>
+    
+
+    <ng-container *ngIf="listName">
+        <span>
+            <mat-icon class="centered-icon">arrow_right</mat-icon>
+        </span>
+    
+        <span>
+            <button mat-button>
+                {{listName}}
+            </button>
+        </span>
+    </ng-container>
+</ng-container>
+

@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Add {{data.dialogName}}</h2>
+
+<mat-dialog-content>
+    <form [formGroup]="form">
+        <mat-form-field>
+            <input formControlName="name" matInput required [placeholder]="'New '+data.dialogName" [appForbiddenChars]="data.forbiddenChars" [maxlength]="data.maxLength" (keyup.enter)="onEnter()">
+        </mat-form-field>
+        <div *ngIf="form.get('name')?.errors?.forbiddenChar">
+            {{form.get('name')?.errors?.forbiddenChar.value}}
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button class="mat-raised-button" (click)="close()">Close</button>
+    <button mat-button class="mat-raised-button mat-primary" (click)="closeAndReturnValue()" [disabled]="form.invalid">{{dialogAction}}</button>
+</mat-dialog-actions>

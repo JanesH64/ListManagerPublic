@@ -1,0 +1,40 @@
+GET https://listmanager-dev.azurewebsites.net/api/ HTTP/1.1
+###
+GET https://listmanager-dev.azurewebsites.net/api/categories/ HTTP/1.1
+###
+GET https://listmanager-dev.azurewebsites.net/api/categories/listmanager HTTP/1.1
+###
+GET https://listmanager-dev.azurewebsites.net/api/categories/listmanager/listmanager
+###
+GET https://listmanager-dev.azurewebsites.net/api/categories/listmanager/listmanager/60a437b35f5ae3b2a9e24869
+###
+POST https://listmanager-dev.azurewebsites.net/api/categories HTTP/1.1
+content-type: application/json
+
+{
+    "name":"listmanager"
+}
+###
+POST https://listmanager-dev.azurewebsites.net/api/categories/listmanager HTTP/1.1
+content-type: application/json
+
+{
+    "name":"listmanager"
+}
+###
+POST https://listmanager-dev.azurewebsites.net/api/categories/listmanager/listmanager HTTP/1.1
+content-type: application/json
+
+{
+    "name":"listmanager"
+}
+###
+PUT https://listmanager-dev.azurewebsites.net/api/categories/listmanager/listmanager/60a2d64b23112c913a177522
+content-type: application/json
+
+{
+    "name":"listmanager"
+}
+###
+DELETE https://listmanager-dev.azurewebsites.net/api/categories/listmanager/listmanager/60a2d64b23112c913a177522
+###

@@ -1,0 +1,18 @@
+version: '3'
+services:
+  api:
+    build: ./Api
+    environment:
+      MONGO_URI: mongodb://mongo:27017/
+      ASPNETCORE_ENVIRONMENT: prod-local
+    depends_on:
+      - mongo
+  app:
+    build: ./App
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - api
+  mongo:
+    image: mongo:latest

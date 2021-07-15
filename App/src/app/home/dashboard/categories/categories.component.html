@@ -1,0 +1,24 @@
+<mat-card fullscreen>
+    <h1 class="category-header">Categories</h1>
+    <div class="card-container">
+        <div>
+            <mat-card>
+                <button mat-icon-button (click)="openCategoryDialog()" tabindex=-1>
+                    <mat-icon>add</mat-icon>
+                    Add new category
+                </button>
+            </mat-card>
+        </div>
+        <ng-container *ngIf="categories$ | async as categories">
+            <div *ngFor="let category of categories">
+                <mat-card class="category-item">
+                    <button mat-button (click)="selectCategory(category)">
+                        {{category}}
+                    </button>
+                    <span class="spacer"></span>
+                    <button mat-button (click)="deleteCategory(category)"><mat-icon class="float-right">delete</mat-icon></button>
+                </mat-card>
+            </div>
+        </ng-container>
+    </div>
+</mat-card>

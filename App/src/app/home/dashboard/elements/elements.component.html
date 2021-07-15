@@ -1,0 +1,35 @@
+<mat-card fullscreen>
+    <h1 class="element-header">Elements</h1>
+    <div class="card-container">
+        <div>
+            <mat-card>
+                <button mat-icon-button (click)="openElementDialog()">
+                    <mat-icon>add</mat-icon>
+                    Add new element
+                </button>
+            </mat-card>
+        </div>
+        <ng-container *ngIf="elements$ | async as elements">
+            <mat-table [dataSource]="elements">
+                <ng-container matColumnDef="edit">
+                    <mat-header-cell  *matHeaderCellDef>Edit</mat-header-cell>
+                    <mat-cell *matCellDef="let element" >
+                         <button mat-button (click)="onSelect(element)"><mat-icon>edit</mat-icon></button>
+                    </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="delete">
+                    <mat-header-cell  *matHeaderCellDef>Delete</mat-header-cell>
+                    <mat-cell *matCellDef="let element" >
+                         <button mat-button (click)="onDelete(element)"><mat-icon class="float-right">delete</mat-icon></button>
+                    </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+            </mat-table>
+        </ng-container>
+    </div>
+</mat-card>

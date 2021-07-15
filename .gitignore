@@ -1,0 +1,3 @@
+.secrets
+Api/Properties/launchSettings.json
+App/yarn.lock

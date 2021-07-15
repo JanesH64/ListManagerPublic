@@ -1,0 +1,24 @@
+<mat-card fullscreen>
+    <h1 class="category-header">Lists</h1>
+    <div class="card-container">
+        <div>
+            <mat-card>
+                <button mat-icon-button (click)="openAddListDialog()">
+                    <mat-icon>add</mat-icon>
+                    Add new list
+                </button>
+            </mat-card>
+        </div>
+        <ng-container *ngIf="lists$ | async as lists">
+            <div *ngFor="let list of lists">
+                <mat-card class="list-item">
+                    <button mat-button (click)="selectList(list)">
+                        {{list}}
+                    </button>
+                    <span class="spacer"></span>
+                    <button mat-button (click)="deleteList(list)"><mat-icon class="float-right">delete</mat-icon></button>
+                </mat-card>
+            </div>
+        </ng-container>
+    </div>
+</mat-card>
